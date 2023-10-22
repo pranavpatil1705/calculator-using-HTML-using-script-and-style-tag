@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <style>
+      #main{
+        width: 300px;
+        height: 330px;
+        background-color: black;
+        border: 5px;
+        border-radius: 8px;
+        border-color: white;
+      }
+      input{
+        width: 20%;
+        height: 40px;
+        font-size: 20px;
+        margin: 6px;
+       
+        border-radius: 5px;
+      }
+      .button{
+        border-radius: 500px;
+        background-color: rgb(73, 71, 71);
+        color: white;
+        
+      }
+      #in_box{
+        width: 94%;
+        height:50px;
+        background-color: silver;
+       align-self:center;
+       border-color: beige;
+       border-color: rgb(238, 246, 239);
+      }
+      .action_btn{
+        background-color: orange;
+        border: 0;
+        
+
+      }
+      .util{
+        background-color: rgba(168, 160, 160, 0.899);
+        border: 0;
+        
+
+      }
+      .zero{
+        padding: 0 65px;
+        margin: 7px;;
+      }
+    </style>
+</head>
+<body>
+   
+   
+  
+    <div id="main" >
+    <form name="f">
+        
+
+      
+       
+       
+          <input placeholder="00" id="in_box" type="text" name="input"><br>
+          <input class="button util" type="button" value="AC" style="font-size: 15px;" onclick= "f.input.value=' '">
+          <input  class="button util" type="button" value="&#9003" style="font-size: 15px;" onclick= "del()">
+          <input  class="button util" type="button" value="%" onclick= "percent()">
+          <input  class="button action_btn " type="button" value="/ " onclick= "division()">
+          <br>
+        
+        
+        <input class="button"  type="button" value="7"  onclick= "f.input.value+=7">
+        <input class="button" type="button" value="8" onclick= "f.input.value+=8">
+        <input class="button" type="button" value="9" onclick= "f.input.value+=9">
+        <input  class="button action_btn " type="button" value="x" onclick= "product()">
+       
+        <br>
+       
+        <input class="button" type="button" value="4 "  onclick= "f.input.value+=4">
+        <input class="button" type="button" value="5" onclick= "f.input.value+=5">
+        <input class="button" type="button" value="6" onclick= "f.input.value+=6">
+        <input class="button action_btn" type="button" value="+" onclick= "sum()">
+       <br>
+        
+        <input class="button" type="button" value="1" onclick= "f.input.value+=1">
+        <input class="button" type="button" value="2" onclick= "f.input.value+=2">
+        <input class="button" type="button" value="3" onclick= "f.input.value+=3">
+        <input class="button action_btn " type="button" value="- " onclick= "diff()">
+        
+        <br>
+        <input class="button zero" type="button" type="button" value="0" onclick= "f.input.value+=0">
+        <input class="button" type="button" value="."  onclick= "f.input.value+='.'">
+        <input class="button action_btn" type="button"  value="=" onclick= "f.input.value=eval(f.input.value)">
+      
+      
+      </div>
+        
+
+        
+    </form>
+   </div>
+
+   <script>
+   function sum(){
+  var last_char=0,temp=0;
+  last_char = f.input.value.charAt(f.input.value.length - 1);
+  temp = f.input.value;
+
+  if(last_char=='+' || last_char=='-' ||last_char=='/' || last_char=='*'){
+    f.input.value=temp.substring(0,temp.length-1);
+
+    f.input.value+='+'
+  }else{
+    f.input.value+='+'
+  }
+}
+
+
+function diff(){
+  var last_char=0,temp=0;
+  last_char = f.input.value.charAt(f.input.value.length - 1);
+  temp = f.input.value;
+
+  if(last_char=='+' || last_char=='-' ||last_char=='/' || last_char=='*'){
+    f.input.value=temp.substring(0,temp.length-1);
+
+    f.input.value+='-'
+  }else{
+    f.input.value+='-'
+  }
+}
+
+function product(){
+  var last_char=0,temp=0;
+  last_char = f.input.value.charAt(f.input.value.length - 1);
+  temp = f.input.value;
+
+  if(last_char=='+' || last_char=='-' ||last_char=='/' || last_char=='*'){
+    f.input.value=temp.substring(0,temp.length-1);
+
+    f.input.value+='*'
+  }else{
+    f.input.value+='*'
+  }
+}
+function del(){
+  var temp=0;
+  temp = f.input.value;
+    f.input.value=temp.substring(0,temp.length-1);
+
+    f.input.value+=' '
+  
+}
+
+function division(){
+  var last_char=0,temp=0;
+  last_char = f.input.value.charAt(f.input.value.length - 1);
+  temp = f.input.value;
+
+  if(last_char=='+' || last_char=='-' ||last_char=='/' || last_char=='*'){
+    f.input.value=temp.substring(0,temp.length-1);
+
+    f.input.value+='/'
+  }else{
+    f.input.value+='/'
+  }
+
+
+}
+
+function percent(){
+  f.input.value=(f.input.value/100)
+}
+
+
+   </script>
+</body>
+</html>
